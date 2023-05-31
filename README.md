@@ -6,8 +6,8 @@ This project is meant to demonstrate the data manipulation skills necessary for 
 
 The subject of this project is the COVID-19 virus, and it will be analyzed for its evolution around the world between January 2020 and May 2023.
 
-**NOTE:** 
-The visualizations for this project were performed using the Cufflinks Python library, which allows for the creation of **interactive charts**. To view them, you need to download [Jupyter Notebook file](https://github.com/diogosmferreira/COVID-19/blob/main/COVID-19%20Exploratory%20Data%20Analysis%20and%20Visualizations.ipynb) and run the code, or download the [HTML](https://github.com/diogosmferreira/COVID-19/blob/main/COVID-19%20Exploratory%20Data%20Analysis%20and%20Visualizations.html) version.
+***Note:** 
+The visualizations for this project were performed using the Cufflinks Python library, which allows for the creation of **interactive charts**. To view them, you need to download [Jupyter Notebook file](https://github.com/diogosmferreira/COVID-19/blob/main/COVID-19%20Exploratory%20Data%20Analysis%20and%20Visualizations.ipynb) and run the code, or download the [HTML version](https://github.com/diogosmferreira/COVID-19/blob/main/COVID-19%20Exploratory%20Data%20Analysis%20and%20Visualizations.html).*
 
 
 ## Summary

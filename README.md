@@ -292,7 +292,7 @@ df_world.iplot(kind='line',x='date',y='New cases (7-MA)', secondary_y= 'New deat
 
 **Chart analysis 4.7:** 
 
-Since the beginning of the pandemic, both the number of deaths and the number of confirmed cases of COVID-19 have skyrocketed. Over time, there has been a tendency for mortality to decrease for each confirmed case. To better understand this trend, the following chart shows the death-to-case ratio over time.
+Since the beginning of the pandemic, both the number of deaths and the number of confirmed cases of COVID-19 have skyrocketed. Over time, there has been a tendency for mortality to decrease for each confirmed case. To better understand this trend, the following chart shows the daily case fatality rate over time.
 
 ```
 df_world['Daily case fatality rate'] = df_world['New deaths (7-MA)']/df_world['New cases (7-MA)']

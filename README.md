@@ -1,4 +1,4 @@
-# COVID-19 Exploratory Data Analysis and Visualizations
+# COVID-19 Analysis
 
 ## Goal
 

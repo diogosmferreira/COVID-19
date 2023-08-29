@@ -650,7 +650,7 @@ df_country_G7.iplot(kind = 'line',
                     title = 'Chart 4.23: Number of COVID-19 patients in intensive care (ICU) per million people in G7 Countries')
 ``` 
 
-![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/6e73a9f4-0bbb-4dfd-afd6-2cc1a096bfec)
+![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/c53140c9-3b7d-490c-8471-c7ec9f51b95c)
 
 **Chart analysis 4.23:**
 
@@ -681,7 +681,7 @@ df_country_G7.iplot(kind = 'line',
                     colorscale ='plotly',
                     title = 'Chart 4.24: Cumulative case fatality rate of COVID-19 in G7 Countries')
 ```   
-![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/c5321ade-e731-450d-9930-5083c32f2554)
+![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/889f483b-c716-4eca-b826-3f6256a96d4c)
 
  **Chart analysis 4.24:**
 

@@ -362,7 +362,7 @@ df_continent2.iplot(kind="pie",
                     labels="Continent",
                     values="Total Cases",
                     textinfo='percent+label', hole=0,theme = 'white', 
-                    title = 'Chart 4.11: Share of COVID-19 cases',
+                    title = 'Chart 4.10: Share of COVID-19 cases',
                     pull=[0,0.07,0,0,0,0])
 ```
 
@@ -379,7 +379,7 @@ df_continent1.iplot(kind = 'line',
                     x='date',y='total_deaths', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.12: Cumulative confirmed COVID-19 deaths')
+                    title = 'Chart 4.11: Cumulative confirmed COVID-19 deaths')
 ```
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/91c34caf-6f90-4299-bcc5-56be2caa1706)
@@ -397,7 +397,7 @@ df_continent3 = df_continent3.rename(columns={'location': 'Continent', 'new_deat
 df_continent3.iplot(kind="pie",
                     labels="Continent",
                     values="Total Deaths",
-                    textinfo='percent+label', hole=0,theme = 'white', title = 'Chart 4.13: Share of COVID-19 deaths',
+                    textinfo='percent+label', hole=0,theme = 'white', title = 'Chart 4.12: Share of COVID-19 deaths',
                     pull=[0,0,0.07,0,0,0])
 ```
 
@@ -416,7 +416,7 @@ df_continent1.iplot(kind = 'line',
                     x='date',y='Cumulative case fatality rate', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.14: Cumulative case fatality rate of COVID-19 [%]')
+                    title = 'Chart 4.13: Cumulative case fatality rate of COVID-19 [%]')
 ```
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/af499038-9b60-458b-9470-40982ec343d3)
@@ -441,7 +441,7 @@ df_continent1.iplot(kind = 'line',
                     x='date',y='Daily case fatality rate', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.15: Daily case fatality rate of COVID-19 (7-day MA) [%]')
+                    title = 'Chart 4.14: Daily case fatality rate of COVID-19 (7-day MA) [%]')
 ```
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/55c2065b-749e-4f07-90a1-f6acd0bab089)
@@ -463,7 +463,7 @@ df_continent1.iplot(kind = 'line',
                     x='date',y='Death Rate_Population', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.16: Population fatality rate of COVID-19 [%]')
+                    title = 'Chart 4.15: Population fatality rate of COVID-19 [%]')
 ```
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/ba23bc37-0c56-42f9-89ee-63e4fb0d7f10)
 
@@ -513,7 +513,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='total_cases', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.17: Cumulative confirmed COVID-19 cases in G7 Countries')
+                    title = 'Chart 4.16: Cumulative confirmed COVID-19 cases in G7 Countries')
 ```
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/f6c63163-bd06-4cc5-8999-745d30b8b18d)
@@ -531,7 +531,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='total_cases_per_million', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.18: Cumulative confirmed COVID-19 cases per million people in G7 Countries')
+                    title = 'Chart 4.17: Cumulative confirmed COVID-19 cases per million people in G7 Countries')
 ```
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/1496d48f-8660-40ea-bd74-ba96b70ca4e5)
@@ -551,7 +551,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='total_deaths', 
                     theme = 'white',
                     colorscale ='plotly',
-                    title = 'Chart 4.19: Cumulative confirmed COVID-19 deaths in G7 Countries')
+                    title = 'Chart 4.18: Cumulative confirmed COVID-19 deaths in G7 Countries')
 ```
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/76c47898-01c9-4e6a-ad7e-5a3085f4f768)
@@ -569,7 +569,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='total_deaths_per_million', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.20: Cumulative confirmed COVID-19 deaths per million people in G7 Countries')
+                    title = 'Chart 4.19: Cumulative confirmed COVID-19 deaths per million people in G7 Countries')
 ```
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/7db009d7-cf58-4cee-b0d2-e4edea86778d)
@@ -589,7 +589,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='new_cases_per_million_MA7', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.21: Daily new confirmed COVID-19 cases per million people in G7 Countries (7-day MA)')
+                    title = 'Chart 4.20: Daily new confirmed COVID-19 cases per million people in G7 Countries (7-day MA)')
 ```
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/fc5ccdd4-0864-4fa7-ba99-79f351863bf5)
@@ -609,7 +609,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='new_deaths_per_million_MA7', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.22: Daily new confirmed COVID-19 deaths per million people in G7 Countries (7-day MA)')
+                    title = 'Chart 4.21: Daily new confirmed COVID-19 deaths per million people in G7 Countries (7-day MA)')
 ``` 
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/0c17a0fd-04e8-40a9-97d5-fbc14c56ff36)
@@ -627,7 +627,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='hosp_patients_per_million', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.23: Number of COVID-19 patients in hospital per million people in G7 Countries')
+                    title = 'Chart 4.22: Number of COVID-19 patients in hospital per million people in G7 Countries')
 ``` 
               
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/dd3a8f7a-a556-4150-833d-f9ab52480757)
@@ -647,7 +647,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='icu_patients_per_million', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.24: Number of COVID-19 patients in intensive care (ICU) per million people in G7 Countries')
+                    title = 'Chart 4.23: Number of COVID-19 patients in intensive care (ICU) per million people in G7 Countries')
 ``` 
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/6e73a9f4-0bbb-4dfd-afd6-2cc1a096bfec)
@@ -679,7 +679,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='Cumulative case fatality rate', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.25: Cumulative case fatality rate of COVID-19 in G7 Countries')
+                    title = 'Chart 4.24: Cumulative case fatality rate of COVID-19 in G7 Countries')
 ```   
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/c5321ade-e731-450d-9930-5083c32f2554)
 
@@ -703,7 +703,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='Daily case fatality rate_MA7', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.26: Daily case fatality rate of COVID-19 in G7 Countries (7-day MA)')
+                    title = 'Chart 4.25: Daily case fatality rate of COVID-19 in G7 Countries (7-day MA)')
 ```                   
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/0780ed98-8389-43fc-8c42-5b8925354678)
 
@@ -724,7 +724,7 @@ df_country_G7.iplot(kind = 'line',
                     x='date',y='Share people fully vaccinated', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.27: Share of people who completed the initial COVID-19 vaccination protocol in G7 Countries [%]')
+                    title = 'Chart 4.26: Share of people who completed the initial COVID-19 vaccination protocol in G7 Countries [%]')
 ``` 
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/0770325b-9578-441a-9b6d-83a5e0c29076)
@@ -755,7 +755,7 @@ In order to create the correlation matrix, a pivot table was created, grouped by
 
 ```python 
 df_country_pvt = df_country1.pivot_table(index = 'location', values = ['total_cases_per_million','total_deaths_per_million','life_expectancy','population_density','diabetes_prevalence','cardiovasc_death_rate','median_age','aged_70_older','gdp_per_capita','human_development_index','handwashing_facilities'],aggfunc=max)
-df_country_pvt.corr().iplot(kind='heatmap',colorscale="Blues",title="Chart 4.28 - Correlation between demographic factors and COVID-19", theme='white')
+df_country_pvt.corr().iplot(kind='heatmap',colorscale="Blues",title="Chart 4.27 - Correlation between demographic factors and COVID-19", theme='white')
 ``` 
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/ac3a1065-82e6-45ab-a534-4e8bb483d0b3)

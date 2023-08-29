@@ -64,7 +64,7 @@ This complete COVID-19 dataset includes all historical data maintained by Our Wo
 For the purpose of this analysis, the XLXS format was used, which is organized in a tabular structure, and follow a format of 1 row per location and date.
 The variables represent all of main data related to confirmed cases, deaths, hospitalizations, and testing, as well as other variables of potential interest.
 
-```
+```python
 import pandas as pd
 data_structure = pd.read_csv("owid-covid-codebook.csv")
 data_structure.head(21)
@@ -345,7 +345,7 @@ df_continent1.iplot(kind = 'line',
                     x='date',y='total_cases', 
                     theme = 'white', 
                     colorscale ='plotly',
-                    title = 'Chart 4.10: Cumulative confirmed COVID-19 cases')
+                    title = 'Chart 4.9: Cumulative confirmed COVID-19 cases')
 ```
 
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/cbb02e6c-0fa1-4053-9046-c7f442f65ffb)
@@ -681,7 +681,7 @@ df_country_G7.iplot(kind = 'line',
                     colorscale ='plotly',
                     title = 'Chart 4.25: Cumulative case fatality rate of COVID-19 in G7 Countries')
 ```   
-![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/19927a13-1f82-4899-8672-383b8cda8d4c)
+![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/c5321ade-e731-450d-9930-5083c32f2554)
 
  **Chart analysis 4.24:**
 

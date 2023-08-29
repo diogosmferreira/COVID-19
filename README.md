@@ -77,7 +77,7 @@ You can find the **full codebook**, [here](https://github.com/owid/covid-19-data
 
 ### Importing libraries and set-up
 
-```
+```python
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -94,7 +94,7 @@ cf.go_offline()
 
 ### Importing the dataset
 
-```
+```python
 df = pd.read_excel("owid-covid-data.xlsx")
 ```
 ### View/Inspecting data
@@ -103,18 +103,18 @@ df = pd.read_excel("owid-covid-data.xlsx")
 
 Checked the data type of each column to see if any changes were needed.
 
-```
+```python
 df.info()
 ```
 ![image](https://github.com/diogosmferreira/COVID-19/assets/129385224/98ccdf2a-090e-4944-867d-bea8af7b6b20)
 
 It appears that the data type for the **'Date'** column is an **object** and should be changed to **datetime**.
 
-```
+```python
 df["date"] = pd.to_datetime(df.date)
 ```
 
-```
+```python
 df["date"].info()
 ```
 <img width="319" alt="image" src="https://github.com/diogosmferreira/COVID-19/assets/129385224/7ec42460-08eb-4a43-bb06-1e92f338a46f">
@@ -123,14 +123,14 @@ df["date"].info()
 
 In order to understand how the dataset is structured in terms of missing values, a bar chart was created with the percentage of missing values in each column relative to the total number of rows.
 
-```
+```python
 total = df.isnull().sum().sort_values(ascending = False)
 percent = ((df.isnull().sum()/df.isnull().count())*100).sort_values(ascending = False)
 dfmv = pd.concat([total, percent], axis=1, keys=['Total', 'Percentage of Missing Values [%]'])
 dfmv = dfmv.reset_index()
 ```
 
-```
+```python
 layout1 = cf.Layout(
     height=800,
     width=1200,
@@ -169,10 +169,10 @@ Later, another dataframe was created with the data associated with the countries
  - Cumulative confirmed COVID-19 cases, May 24, 2023
  - Cumulative confirmed COVID-19 deaths, May 24, 2023
 
-```
+```python
 df_world=df[df['location'] == 'World']
 ```
-```
+```python
 df_world.iplot(kind='line',x='date',y='total_cases', theme = 'white', 
                title = 'Chart 4.1 - Cumulative confirmed COVID-19 cases', color ='Blue', fill = True)
 ```
@@ -182,7 +182,7 @@ df_world.iplot(kind='line',x='date',y='total_cases', theme = 'white',
 
 It appears that in May 2023, the number of confirmed cases of COVID-19 in the world will be around 766 million. Over the period under study, there are two moments (Q1 2022 and December 2022) of greater acceleration in the number of confirmed cases.
 
-```
+```python
 df_world['New cases (7-MA)'] = df_world['new_cases'].rolling(7).mean()
 
 df_world.iplot(kind='line',x='date',y='New cases (7-MA)', theme = 'white', color = 'Blue',
@@ -195,7 +195,7 @@ df_world.iplot(kind='line',x='date',y='New cases (7-MA)', theme = 'white', color
 
 In line with what was identified in the analysis of the previous chart, there are two periods in which there was a significant increase in the number of confirmed daily cases: Q1 2022 and December 2022.
 
-```
+```python
 df_country1 = df[df['continent'].notnull()]
 df_country2 = df_country1[(df_country1['date'] == '2023-05-24')]
 
@@ -223,7 +223,7 @@ iplot(choromap,validate=False)
 
 In this choropleth map, it is possible to gain a global understanding of the total number of confirmed cases by country worldwide. The United States is the country with the highest number of confirmed cases of COVID-19, around 103 million, followed by China with approximately 99 million confirmed cases. India is in third place with approximately 45 million confirmed cases.
 
-```
+```python
 df_world.iplot(kind='line',x='date',y='total_deaths', theme = 'white', color = 'Blue',
                title = 'Chart 4.4 - Cumulative confirmed COVID-19 deaths', fill = True)
 ````
@@ -234,7 +234,7 @@ df_world.iplot(kind='line',x='date',y='total_deaths', theme = 'white', color = '
 
 Since the appearance of the COVID-19 virus, there has only been a significant decrease in the number of confirmed deaths since March 2022.
 
-```
+```python
 df_world['New deaths (7-MA)'] = df_world['new_deaths'].rolling(7).mean()
 
 df_world.iplot(kind='line',x='date',y='New deaths (7-MA)', theme = 'white', color = 'Blue', 
@@ -252,7 +252,7 @@ From January 2021, despite a negative trend, the number of confirmed daily death
 
 In January 2023, there was again a very significant increase in the number of deaths, a consequence of the high number of confirmed cases identified in December 2022.
 
-```
+```python
 data = dict(
         type = 'choropleth',
         colorscale = 'Blues',
@@ -277,7 +277,7 @@ iplot(choromap,validate=False)
 
 The United States is the country with the highest number of confirmed COVID-19 deaths, around 1.12 million, followed by Brazil with approximately 702 thousand confirmed deaths. India is in third place with approximately 531 thousand confirmed deaths.
 
-```
+```python
 annotations = dict(x = "2020-03-11",y = 0, text= 'WHO declares COVID-19 a global pandemic',showarrow=True, arrowsize=0.3, arrowhead = 1, 
                    arrowcolor ='grey', opacity = 1, ay = -160, size = 10, color = 'grey')
 
@@ -294,7 +294,7 @@ df_world.iplot(kind='line',x='date',y='New cases (7-MA)', secondary_y= 'New deat
 
 Since the beginning of the pandemic, both the number of deaths and the number of confirmed cases of COVID-19 have skyrocketed. Over time, there has been a tendency for mortality to decrease for each confirmed case. To better understand this trend, the following chart shows the daily case fatality rate over time.
 
-```
+```python
 df_world['Daily case fatality rate'] = df_world['New deaths (7-MA)']/df_world['New cases (7-MA)']
 
 annotations1 = dict(x = "2020-03-11",y = 0, text= 'Beginning of the COVID-19 pandemic',showarrow=True, arrowsize=0.3, arrowhead = 1, 
@@ -333,12 +333,12 @@ Finally, the 7-day moving average of new cases and new deaths were calculated, a
  - Daily case fatality rate of COVID-19 (7-day MA) [%].
  - Population fatality rate of COVID-19 [%].
 
-```
+```python
 df_continent1 = df[df['continent'].isnull()]
 df_continent1 = df_continent1[(df_continent1['location'] == 'Africa') | (df_continent1['location'] == 'Asia') | (df_continent1['location'] == 'Europe') | (df_continent1['location'] == 'Oceania') | (df_continent1['location'] == 'North America') | (df_continent1['location'] == 'South America')]
 ```
 
-```
+```python
 df_continent1.iplot(kind = 'line', 
                     mode ='lines', 
                     categories = 'location', 
@@ -354,7 +354,7 @@ df_continent1.iplot(kind = 'line',
 
 Asia is the continent with the highest number of cases, approximately 297 million confirmed cases. Europe follows with approximately 249 million, and North America is third with 124 million confirmed cases of COVID-19.
 
-```
+```python
 df_continent2 = df_continent1.groupby('location')['new_cases'].sum()
 df_continent2 = df_continent2.reset_index()
 df_continent2 = df_continent2.rename(columns={'location': 'Continent', 'new_cases': 'Total Cases'})
@@ -372,7 +372,7 @@ df_continent2.iplot(kind="pie",
 
 The number of cases in the Asian continent represents 38.8% of the total confirmed cases, followed by Europe with 32.5% and in third place North America with 16.2% of the total confirmed cases of COVID-19.
 
-```
+```python
 df_continent1.iplot(kind = 'line', 
                     mode ='lines', 
                     categories = 'location', 
@@ -390,7 +390,7 @@ Europe is the continent with the highest number of deaths, approximately 2.06 mi
 
 It should be noted that, despite Asia having the most confirmed cases, the virus was more lethal in Europe. North America, which has less than half the number of confirmed cases as Asia, has a very similar number of deaths, indicating a very high case fatality rate.
 
-```
+```python
 df_continent3 = df_continent1.groupby('location')['new_deaths'].sum()
 df_continent3 = df_continent3.reset_index()
 df_continent3 = df_continent3.rename(columns={'location': 'Continent', 'new_deaths': 'Total Deaths'})
@@ -407,7 +407,7 @@ df_continent3.iplot(kind="pie",
 
 The number of deaths in the European continent represents 29.7% of the total confirmed cases, followed by Asia with 23.5% and in third place North America with 23.1% of the total confirmed deaths of COVID-19.
 
-```
+```python
 df_continent1['Cumulative case fatality rate'] = ((df_continent1['total_deaths']/df_continent1['total_cases'])*100)
 
 df_continent1.iplot(kind = 'line', 
@@ -429,7 +429,7 @@ It appears that the cumulative case fatality rate of COVID-19 reached its maximu
 
 **Note:** For a better visualization, filter by continent, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-```
+```python
 df_continent1['New deaths (7-MA)'] = df_continent1['new_deaths'].rolling(7).mean()
 df_continent1['New cases (7-MA)'] = df_continent1['new_cases'].rolling(7).mean()
 
@@ -454,7 +454,7 @@ There has been a negative trend in the ratio over time on all continents. Genera
 
 **Note:** For a better visualization, filter by continent, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-```
+```python
 df_continent1['Death Rate_Population'] = ((df_continent1['total_deaths']/df_continent1['population'])*100)
 
 df_continent1.iplot(kind = 'line', 
@@ -500,13 +500,13 @@ Then, new columns were created through calculations, namely **New cases per mill
  - Daily case fatality rate of COVID-19 in G7 Countries.
  - Share of people who completed the initial COVID-19 vaccination protocol in G7 Countries [%].
 
-```
+```python
 df_country_G7 = df_country1[(df_country1['location'] == 'Germany') | (df_country1['location'] == 'United States') | 
                           (df_country1['location'] == 'Canada') | (df_country1['location'] == 'France') | 
                           (df_country1['location'] == 'Italy') | (df_country1['location'] == 'United Kingdom') |
                           (df_country1['location'] == 'Japan')]
   ```
-  ```
+  ```python
 df_country_G7.iplot(kind = 'line', 
                     mode ='lines', 
                     categories = 'location', 
@@ -524,7 +524,7 @@ The United States is the country belonging to the G7 with the highest number of 
 
 **Note:** For a better visualization, filter by country, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-```
+```python
 df_country_G7.iplot(kind = 'line', 
                     mode ='lines', 
                     categories = 'location', 
@@ -544,7 +544,7 @@ France is the country with the highest number of cases per million people, with 
 
 **Note:** For a better visualization, filter by country, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-```
+```python
 df_country_G7.iplot(kind = 'line', 
                     mode ='lines', 
                     categories = 'location', 
@@ -562,7 +562,7 @@ The United States is clearly the country with the highest cumulative number of c
 
 **Note:** For a better visualization, filter by country, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-```
+```python
 df_country_G7.iplot(kind = 'line', 
                     mode ='lines', 
                     categories = 'location', 
@@ -580,7 +580,7 @@ When taking into account the population of each country, the United Kingdom (334
 
 **Note:** For a better visualization, filter by country, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-```
+```python
 df_country_G7['new_cases_per_million_MA7'] = df_country_G7['new_cases_per_million'].rolling(7).mean()
 
 df_country_G7.iplot(kind = 'line', 
@@ -600,7 +600,7 @@ France saw the highest peak of daily confirmed cases of COVID-19 per million peo
 
 **Note:** For a better visualization, filter by country, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-```                    
+```python             
 df_country_G7['new_deaths_per_million_MA7'] = df_country_G7['new_deaths_per_million'].rolling(7).mean()
 
 df_country_G7.iplot(kind = 'line', 
@@ -620,7 +620,7 @@ In this chart, it is possible to identify three periods, across the various coun
 
 **Note:** For a better visualization, filter by country, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-``` 
+```python
 df_country_G7.iplot(kind = 'line', 
                     mode ='lines', 
                     categories = 'location', 
@@ -640,7 +640,7 @@ Germany and Japan are not shown in the graph because the dataset does not contai
 
 **Note:** For a better visualization, filter by country, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-``` 
+```python 
 df_country_G7.iplot(kind = 'line', 
                     mode ='lines', 
                     categories = 'location', 
@@ -670,7 +670,7 @@ Over time, there is a downward trend across all countries.
 
 **Note:** For a better visualization, filter by country, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-``` 
+```python
 df_country_G7['Cumulative case fatality rate'] = ((df_country_G7['total_deaths']/df_country_G7['total_cases'])*100)
 
 df_country_G7.iplot(kind = 'line', 
@@ -693,7 +693,7 @@ In the case of the United Kingdom, on February 3, 2020, the cumulative case fata
 
 **Note:** For a better visualization, filter by continent, clicking on the label (only available in Jupyter Notebook or HTML version).
  
-``` 
+```python 
 df_country_G7['Daily case fatality rate'] = ((df_country_G7['new_deaths']/df_country_G7['new_cases'])*100)
 df_country_G7['Daily case fatality rate_MA7'] = df_country_G7['Daily case fatality rate'].rolling(7).mean()
 
@@ -715,7 +715,7 @@ There has been a negative trend in the ratio over time on all G7 Countries. Gene
 
 **Note:** For a better visualization, filter by continent, clicking on the label (only available in Jupyter Notebook or HTML version).
 
-``` 
+```python
 df_country_G7['Share people fully vaccinated'] = ((df_country_G7['people_fully_vaccinated']/df_country_G7['population'])*100)
 
 df_country_G7.iplot(kind = 'line', 
@@ -753,7 +753,7 @@ The objective of this section was to create a correlation matrix in order to ver
 
 In order to create the correlation matrix, a pivot table was created, grouped by country, and containing the various variables to be compared. The matrix was then generated using the Python library Cufflinks.
 
-``` 
+```python 
 df_country_pvt = df_country1.pivot_table(index = 'location', values = ['total_cases_per_million','total_deaths_per_million','life_expectancy','population_density','diabetes_prevalence','cardiovasc_death_rate','median_age','aged_70_older','gdp_per_capita','human_development_index','handwashing_facilities'],aggfunc=max)
 df_country_pvt.corr().iplot(kind='heatmap',colorscale="Blues",title="Chart 4.28 - Correlation between demographic factors and COVID-19", theme='white')
 ``` 
